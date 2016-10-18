@@ -1,43 +1,52 @@
-<?php
+<?php 
+function form_mail($sPara, $sAsunto, $sTexto, $sDe)
+{ 
+$bHayFicheros = 0; 
+$sCabeceraTexto = ""; 
+$sAdjuntos = "";
 
-$EmailFrom = $_REQUEST['email']; 
-$EmailTo = "alanism@uabc.edu.mx"; // Your email address here
-// $EmailTo = "ci2t@uabc.edu.mx,"."cgaxiola@uabc.edu.mx,"."dtrujillotoledo@uabc.edu.mx,"."alanism@uabc.edu.mx"; // Your email address here
-$Subject = "Formulario Contacto Ci2tijuana.org";
-$Name = Trim(stripslashes($_POST['name'])); 
-$Email = Trim(stripslashes($_POST['email'])); 
-$Message = Trim(stripslashes($_POST['message'])); 
+if ($sDe)$sCabeceras = "From:".$sDe."\n"; 
+else $sCabeceras = ""; 
+$sCabeceras .= "MIME-version: 1.0\n"; 
+foreach ($_POST as $sNombre => $sValor) 
+$sTexto = $sTexto."\n".$sNombre." = ".$sValor;
 
-// validation
-$validationOK=true;
-if (!$validationOK) {
-  echo "Error";
-  exit;
+foreach ($_FILES as $vAdjunto)
+{ 
+if ($bHayFicheros == 0)
+{ 
+$bHayFicheros = 1; 
+$sCabeceras .= "Content-type: multipart/mixed;"; 
+$sCabeceras .= "boundary=\"--_Separador-de-mensajes_--\"\n";
+
+$sCabeceraTexto = "----_Separador-de-mensajes_--\n"; 
+$sCabeceraTexto .= "Content-type: text/plain;charset=iso-8859-1\n"; 
+$sCabeceraTexto .= "Content-transfer-encoding: 7BIT\n";
+
+$sTexto = $sCabeceraTexto.$sTexto; 
+} 
+if ($vAdjunto["size"] > 0)
+{ 
+$sAdjuntos .= "\n\n----_Separador-de-mensajes_--\n"; 
+$sAdjuntos .= "Content-type: ".$vAdjunto["type"].";name=\"".$vAdjunto["name"]."\"\n";; 
+$sAdjuntos .= "Content-Transfer-Encoding: BASE64\n"; 
+$sAdjuntos .= "Content-disposition: attachment;filename=\"".$vAdjunto["name"]."\"\n\n";
+
+$oFichero = fopen($vAdjunto["tmp_name"], 'r'); 
+$sContenido = fread($oFichero, filesize($vAdjunto["tmp_name"])); 
+$sAdjuntos .= chunk_split(base64_encode($sContenido)); 
+fclose($oFichero); 
+} 
 }
 
-// prepare email body text
-$Body = "";
-$Body .= "Nombre: ";
-$Body .= $Name;
-$Body .= "\n";
-$Body .= "Email: ";
-$Body .= $Email;
-$Body .= "\n";
-$Body .= "Mensaje: ";
-$Body .= "\n";
-$Body .= "\n";
-$Body .= $Message;
-$Body .= "\n";
-
-// send email 
-$success = mail($EmailTo, $Subject, $Body, "From: <$EmailFrom>");
-
-// redirect to success page 
-if ($success){
- header("Location: http://garitas.byronwd.com");
-  // echo "Succes";
+if ($bHayFicheros) 
+$sTexto .= $sAdjuntos."\n\n----_Separador-de-mensajes_----\n"; 
+return(mail($sPara, $sAsunto, $sTexto, $sCabeceras)); 
 }
-else{
-  echo "Error";
-}
+
+//cambiar aqui el email 
+if (form_mail("alanism@uabc.edu.mx", $_POST[asunto], 
+"Los datos introducidos en el formulario son:\n\n", $_POST[email])) 
+ header( 'Location: http://garitas.byronwd.com' ) ;
+// echo "Su formulario ha sido enviado con exito"; 
 ?>
