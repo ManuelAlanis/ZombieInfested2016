@@ -1,0 +1,41 @@
+/* Custom Stylesheet */
+/**
+ * Use this file to override Materialize files so you can update
+ * the core Materialize files in the future
+ *
+ * Made By MaterializeCSS.com
+ */
+
+nav ul a,
+nav .brand-logo {
+  color: #444;
+}
+
+p {
+  line-height: 2rem;
+}
+
+body {
+    /*background-color: lightblue;*/
+    background: lightblue; /* For browsers that do not support gradients */
+    background: -webkit-radial-gradient(circle, #A1B98A, #456760); /* Safari */
+    background: -o-radial-gradient(circle, #A1B98A, #456760); /* Opera 11.6 to 12.0 */
+    background: -moz-radial-gradient(circle, #A1B98A, #456760); /* Firefox 3.6 to 15 */
+    background: radial-gradient(circle, #A1B98A, #456760); /* Standard syntax */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    /*background-image: url("../images/texture.png");*/
+}
+
+.layer{
+  background-image: url("../images/texture.png");
+  position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}

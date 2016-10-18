@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+  <title>Zombie Infested</title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+</head>
+<body>
+      <div class="container">
+        <h1 class="header red-text text-darken-2"><a class="btn-floating btn-large waves-effect waves-light red" href="index.html"><i class="material-icons">keyboard_backspace</i></a>
+        Registro <br></h1>
+        <div class="row">
+        <form id="contact_form" class="contact_form" action="contact.php" method="post" name="contact_form">  
+          <ul>
+            <span>Nombre:</span>
+            <input type="text" name="name" id="name" required class="form-control required" >
+          
+            <span>Correo electronico:</span>
+            <input type="email" name="email" id="email" required placeholder="JohnDoe@gmail.com" class="form-control required email">
+            
+            <span>Mensaje:</span>
+            <textarea name="message" id="message" cols="100" rows="6" required  class="required" ></textarea>
+          
+            <button type="submit" id="submit" name="submit" class="button fright">Enviar</button>  
+          </ul>     
+        </form> 
+        </div>
+        <div class="row">
+            <div class="col s12 m11 l12">
+              <div class="card darken-1">
+                <div class="card-content black-text">
+                  <span class="card-title col s12">Registrate para la carrera</span>
+                  <div class="input-field col s6">
+                    <i class="material-icons prefix">account_circle</i>
+                    <input id="last_name" type="text" class="validate">
+                    <label for="last_name">Nombre</label>
+                  </div>
+                  <div class="input-field col s6">
+                    <input id="email" type="email" class="validate">
+                    <label for="email">Email</label>
+                  </div>
+                  <div class="input-field col s6">
+                    <i class="material-icons prefix">phone</i>
+                    <input id="icon_telephone" type="tel" class="validate">
+                    <label for="icon_telephone">Telephone</label>
+                  </div>
+                  <div class="input-field col s6">
+                    <select>
+                      <option value="" disabled selected>Talla de Camisa</option>
+                      <option value="1">S</option>
+                      <option value="2">M</option>
+                      <option value="3">L</option>
+                    </select>
+                    <label>Selecciona la talla de tu camisa</label>
+                  </div>
+                  <!-- <div class="card-action"> -->
+                  <p class="white-text">.</p>
+                  <div class="col s12">
+                  <div class="col s6 offset-s3">
+                    <div class="input-field">
+                    <select>
+                      <option value="" disabled selected>Talla de Camisa</option>
+                      <option value="1">2pm</option>
+                      <option value="2">3pm</option>
+                      <option value="3">4pm</option>
+                      <option value="4">5pm</option>
+                      <option value="5">6pm</option>
+                    </select>
+                    <label>Selecciona Horario de Salida</label>
+                    </div>
+                    </div>
+                  </div>
+                  <!-- <div class="card-action"> -->
+                  <!-- <label>Acepto terminos y condiciones</label> -->
+                  <div class="center s15">
+                    <input type="checkbox" id="test5"/>
+                    <label for="test5"></label>
+                    <br>
+                    <label>Acepto <a href="carta-no-responsiva.docx">terminos y condiciones</a></label>
+                  </div>
+                </div>
+              </div>
+            </div>        
+        </div>
+        <div class="row center">
+          <a href="#" id="download-button" class="btn-large waves-effect waves-light red darken-2">Registro</a>
+        </div>
+      </div>
+  <div class="layer"></div>
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="js/materialize.js"></script>
+  <script src="js/init.js"></script>
+  <script type="text/javascript">
+     $(document).ready(function() {
+        $('select').material_select();
+     });
+     //Time Picker:
+$('.timepicker').pickatime({
+    default: 'now',
+    twelvehour: false, // change to 12 hour AM/PM clock from 24 hour
+    donetext: 'OK',
+  autoclose: false,
+  vibrate: true // vibrate the device when dragging clock hand
+});
+  </script>
+
+
+  </body>
+</html>
