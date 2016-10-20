@@ -9,11 +9,15 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <style>
+    text-center{
+      text-align: center !important;
+    }
+  </style>
 </head>
 <body>
       <div class="container">
-        <h1 class="header red-text text-darken-2"><a class="btn-floating btn-large waves-effect waves-light red" href="index.html"><i class="material-icons">keyboard_backspace</i></a>
-        Registro <br></h1>
+        <h4 class="header red-text text-darken-2"><a class="btn-floating btn-large waves-effect waves-light red" href="index.html"><i class="material-icons">keyboard_backspace</i></a></h4>
         <div class="row">
             <div class="col s12 m11 l12">
               <div class="card darken-1">
@@ -21,42 +25,65 @@
                   <span class="card-title col s12">Registrate para la carrera</span>
                   <form class="contact_form"name='formulario' id='formulario' method='post' action='contact.php' target='_self' enctype="multipart/form-data"> 
                       <!-- <h2 align="center"> <img alt=""> ¡ Envia tu foto !</h2> -->
+                      <div class="row">
+                      <div class="col m6">
                         <span>Nombre:</span>
-                      <input class="form-control" placeholder="Escribe tu nombre completo"type='text' name='Nombre' id='Nombre'>
-                      <span>Correo Electrónico:</span>
-                      <input  class="form-control" placeholder=""type='text' name='email' id='email'>
-                      <span>Telefono</span>
-                      <input class="form-control message" placeholder="Escribe tu telefono" type='number' name='telefono' id='telefono' />
-                      <span>Mensaje</span>
-                      <input class="form-control w-input" placeholder="" name="mensaje" cols="50" rows="10" id="mensaje"></input>
-                      <span>Talla de Camisa</span>
-                      <select name='Talla' id='Talla'>
-                          <option value="" disabled selected>Selecciona talla</option>
-                          <option value="S">S</option>
-                          <option value="M">M</option>
-                          <option value="L">L</option>
-                      </select>
-                      <span>Horario</span>
-                      <select name='Horario' id='Horario'>
-                        <option value="" disabled selected>Selecciona horario</option>
-                        <option value="2pm">2pm</option>
-                        <option value="3pm">3pm</option>
-                        <option value="4pm">4pm</option>
-                        <option value="5pm">5pm</option>
-                        <option value="6pm">6pm</option>
-                      </select>
-                      <p>
+                        <input class="form-control" placeholder="Escribe tu nombre completo"type='text' name='Nombre' id='Nombre'>  
+                      </div>
+                      <div class="col m6">
+                        <span>Correo Electrónico:</span>
+                        <input  class="form-control" placeholder=""type='text' name='email' id='email'>
+                      </div>
+                      </div>
+                      <div class="row">
+                        <div class="col m6">
+                          <span>Telefono</span>
+                          <input class="form-control message" placeholder="Escribe tu telefono" type='number' name='telefono' id='telefono' />  
+                        </div>
+                        <div class="col m6">
+                          <span>Mensaje</span>
+                          <input class="form-control w-input" placeholder="De ser necesario escribe un mensaje" name="mensaje" cols="50" rows="10" id="mensaje"></input>
+                        </div>
+                        <div class="col m6">
+                          <span>No.Boleto</span>
+                          <input class="form-control w-input" placeholder="Escribe el numero de boleto que compraste" name="mensaje" cols="50" rows="10" id="mensaje"></input>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col m6">
+                          <span>Talla de Camisa</span>
+                          <select name='Talla' id='Talla'>
+                              <option value="" disabled selected>Selecciona talla</option>
+                              <option value="S">S</option>
+                              <option value="M">M</option>
+                              <option value="L">L</option>
+                          </select>
+                        </div>
+                        <div class="col m6">
+                          <span>Horario</span>
+                          <select name='Horario' id='Horario'>
+                            <option value="" disabled selected>Selecciona horario</option>
+                            <option value="2pm">2pm</option>
+                            <option value="3pm">3pm</option>
+                            <option value="4pm">4pm</option>
+                            <option value="5pm">5pm</option>
+                            <option value="6pm">6pm</option>
+                          </select>    
+                        </div>  
+                      </div>
+                       <div class="row center s15">
+                        <input type="checkbox" id="test5"/>
+                        <label for="test5"></label>
+                        <br>
+                        <label>Acepto <a href="carta-no-responsiva.docx">terminos y condiciones</a></label>
+                      </div>
+                      <div class="center row">
                       <button class="btn-large waves-effect waves-light red darken-2" type="submit">! Enviar !</button>
-                      </p> 
+                      </div> 
                     </form>
                   <!-- <div class="card-action"> -->
                   <!-- <label>Acepto terminos y condiciones</label> -->
-                  <div class="center s15">
-                    <input type="checkbox" id="test5"/>
-                    <label for="test5"></label>
-                    <br>
-                    <label>Acepto <a href="carta-no-responsiva.docx">terminos y condiciones</a></label>
-                  </div>
+                 
                 </div>
               </div>
             </div>        
