@@ -45,7 +45,7 @@ return(mail($sPara, $sAsunto, $sTexto, $sCabeceras));
 }
 
 //cambiar aqui el email 
-if (form_mail("alanism@uabc.edu.mx,registro@zombieinfested.com", "Registro ZombieInfested-".$_POST[Nombre]."-Boleto:".$_POST[boleto], 
+if (form_mail("alanism@uabc.edu.mx,registro@zombieinfested.com", "Registro ZombieInfested-"."-Boleto:".$_POST[boleto], 
 "Los datos introducidos en el formulario son:\n\n", $_POST[email])) 
  header( 'Location: http://zombieinfested.com/reg.html' ) ;
 // echo "Su formulario ha sido enviado con exito"; 
